@@ -2,28 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-	<title>Sistema de Notas Fiscais</title>
-	<h:outputStylesheet library="css" name="style.css" />
-</h:head>
-<h:body>
-	<div id="cabecalho">
-		<h:graphicImage library="imagens" name="logo-uber.png"
-			id="logoCompany" />
-	</div>
-	<div id="usuarioLogado">
-		Logado como: #{usuarioLogadoBean.usuario.login} <br />
-	
-	<h:form>
-			Logado como: #{usuarioLogadoBean.usuario.login} 
-				<h:commandLink value="Deslogar" action="#{loginBean.deslogarUsuario}" 
-					rendered="#{usuarioLogadoBean.logado}"/>
-	</h:form>
-	</div>
-	
-	<div id="conteudo">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<ui:composition template="/_template.xhtml">
+
+	<ui:define name="corpo">
 		<h:form id="formProduto">
 			<h:inputHidden value="#{produtoBean.produto.id}" />
 			<h2>
@@ -86,9 +71,7 @@
 				</h:column>
 			</h:dataTable>
 		</h:form>
-	</div>
-		<div id="rodape">
-		Copyright 2017. Todos os Direitos Reservados a -- Vitor Nogueira --
-	</div>
-</h:body>
+	</ui:define>
+</ui:composition>
+
 </html>

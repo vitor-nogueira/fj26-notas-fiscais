@@ -24,6 +24,10 @@ public class Autorizador implements PhaseListener{
 			return;
 		}
 		
+		if ("/index.xhtml".equals(context.getViewRoot().getViewId())){
+			return;
+		} 
+		
 		//Verificacao
 		if (!usuarioLogado.isLogado()) {
 			NavigationHandler handler = context.getApplication().getNavigationHandler();
