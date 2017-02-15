@@ -9,13 +9,11 @@ import br.com.caelum.notasfiscais.modelo.Usuario;
 
 @Named
 @SessionScoped
-public class UsuarioLogadoBean implements Serializable{
-	
+public class UsuarioLogadoBean implements Serializable{	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7624882497701448506L;
-	
+	private static final long serialVersionUID = 1L;
 	private Usuario usuario;
 	
 	public void logar(Usuario usuario) {
