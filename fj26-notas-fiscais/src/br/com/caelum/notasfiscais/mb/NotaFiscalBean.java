@@ -11,6 +11,7 @@ import br.com.caelum.notasfiscais.dao.ProdutoDao;
 import br.com.caelum.notasfiscais.modelo.Item;
 import br.com.caelum.notasfiscais.modelo.NotaFiscal;
 import br.com.caelum.notasfiscais.modelo.Produto;
+import br.com.caelum.notasfiscais.tx.Transactional;
 
 @Named
 @ViewScoped
@@ -71,13 +72,15 @@ public class NotaFiscalBean implements Serializable{
 	public void setIdProduto(Long idProduto) {
 		this.idProduto = idProduto;
 	}
-
+	
+	@Transactional
 	public void gravar() {
 		this.notaFiscalDao.adiciona(notaFiscal);
 
 		this.notaFiscal = new NotaFiscal();
 	}
 	
+	@Transactional
 	public void guardaItem(){
 		Produto produto = produtoDao.buscaPorId(idProduto); //busca o produto por ID
 		item.setProduto(produto);							//colocar o produto como item da nota

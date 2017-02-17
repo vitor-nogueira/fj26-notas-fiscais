@@ -13,6 +13,10 @@ import br.com.caelum.notasfiscais.mb.UsuarioLogadoBean;
 
 public class Autorizador implements PhaseListener{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Inject
 	private UsuarioLogadoBean usuarioLogado;
 	
@@ -41,7 +45,7 @@ public class Autorizador implements PhaseListener{
 	}
 
 	@Override
-	public void beforePhase(PhaseEvent arg0) {
+	public void beforePhase(PhaseEvent event) {
 		// TODO Auto-generated method stub
 		
 	}

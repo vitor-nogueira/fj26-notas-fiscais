@@ -19,33 +19,33 @@ public class ProdutoDao implements Serializable{
 
 	public void adiciona(Produto produto) {
 		//EntityManager manager = new JPAUtil().getEntityManager();
-		manager.getTransaction().begin();
+		//manager.getTransaction().begin();  -- o controle transacional foi transferido para o @Transactional das ManagedBeans
 
 		//persiste o objeto
 		manager.persist(produto);
 		
-		manager.getTransaction().commit();
+		//manager.getTransaction().commit();
 		//manager.close();
 	}
 
 
 	public void remove(Produto produto) {
 		//EntityManager manager = new JPAUtil().getEntityManager();
-		manager.getTransaction().begin();
+		//manager.getTransaction().begin();
 
 		manager.remove(manager.merge(produto));
 
-		manager.getTransaction().commit();
+		//manager.getTransaction().commit();
 		//manager.close();
 	}
 
 	public void atualiza(Produto produto) {
 		//EntityManager manager = new JPAUtil().getEntityManager();
-		manager.getTransaction().begin();
+		//manager.getTransaction().begin();
 
 		manager.merge(produto);
 		
-		manager.getTransaction().commit();
+		//manager.getTransaction().commit();
 		//manager.close();
 	}
 
@@ -65,11 +65,11 @@ public class ProdutoDao implements Serializable{
 	}
 
 	public List<Produto> listaTodos() {
-		System.out.println("Listando Produtos");
+		//System.out.println("Listando Produtos");
 		//EntityManager manager = new JPAUtil().getEntityManager();
-		System.out.println("Carregando EMF");
+		//System.out.println("Carregando EMF");
 		
-		System.out.println("Criando query com EMF");
+		//System.out.println("Criando query com EMF");
 		CriteriaQuery<Produto> query = manager.getCriteriaBuilder().createQuery(Produto.class);
 		query.select(query.from(Produto.class));
 		System.out.println("Query criada com EMF");
@@ -83,11 +83,11 @@ public class ProdutoDao implements Serializable{
 	}
 	
 	public Produto buscaPorId(Long id) {
-		EntityManager manager = new JPAUtil().getEntityManager();
+	//	EntityManager manager = new JPAUtil().getEntityManager();
 
 		Produto produto = manager.find(Produto.class, id);
 
-		manager.close();
+		//manager.close();
 
 		return produto;
 	}
